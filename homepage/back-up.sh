@@ -15,6 +15,9 @@ SOURCE_DIRECTORY=/opt/homepage
 # Destination - Directory to back up to
 DESTINATION_DIRECTORY=$REPOSITORY_DIRECTORY/homepage
 
+# Back Up Docker Compose File
+cp $SOURCE_DIRECTORY/docker-compose.yml $DESTINATION_DIRECTORY
+
 # Back Up Configuration Files
 mkdir -p $DESTINATION_DIRECTORY/config
 cp -r $SOURCE_DIRECTORY/config/!(logs) $DESTINATION_DIRECTORY/config
