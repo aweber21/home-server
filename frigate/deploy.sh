@@ -10,10 +10,10 @@ SCRIPT_DIRECTORY=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 REPOSITORY_DIRECTORY=$(cd $SCRIPT_DIRECTORY && git rev-parse --show-toplevel)
 
 # Source - Directory to deploy from
-SOURCE_DIRECTORY=$REPOSITORY_DIRECTORY/homepage
+SOURCE_DIRECTORY=$REPOSITORY_DIRECTORY/frigate
 
 # Destination - Directory to deploy to
-DESTINATION_DIRECTORY=/opt/homepage
+DESTINATION_DIRECTORY=/opt/frigate
 
 # Deploy Docker Compose File
 cp $SOURCE_DIRECTORY/docker-compose.yml $DESTINATION_DIRECTORY
