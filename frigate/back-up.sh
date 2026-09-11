@@ -20,4 +20,4 @@ cp $SOURCE_DIRECTORY/docker-compose.yml $DESTINATION_DIRECTORY
 
 # Back Up Configuration Files
 mkdir -p $DESTINATION_DIRECTORY/config
-cp -r $SOURCE_DIRECTORY/config/* $DESTINATION_DIRECTORY/config
+cp -r $SOURCE_DIRECTORY/config/!(*.db*|go2rtc_homekit.yml|model_cache) $DESTINATION_DIRECTORY/config
