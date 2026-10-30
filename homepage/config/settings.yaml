@@ -1,7 +1,31 @@
----
-# For configuration options and examples, please see:
-# https://gethomepage.dev/configs/settings/
+title: Weber Fam Homepage
+description: This is the Homepage for Weber Fam
+theme: dark
+color: slate
 
-providers:
-  openweathermap: openweathermapapikey
-  weatherapi: weatherapiapikey
+layout:
+  Home:
+    icon: mdi-home.svg
+    header: true
+    style: column
+    rows: 4
+  Security:
+    icon: mdi-security.svg
+    header: true
+    style: column
+    rows: 4
+  Media:
+    icon: mdi-file-document-multiple.svg
+    header: true
+    style: column
+    rows: 4
+  Development:
+    icon: mdi-code-braces.svg
+    header: true
+    style: column
+    rows: 4
+  Infrastructure:
+    icon: mdi-domain.svg
+    header: true
+    style: row
+    columns: 4

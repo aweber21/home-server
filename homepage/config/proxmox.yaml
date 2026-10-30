@@ -1,5 +1,9 @@
----
-# pve:
-#   url: https://proxmox.host.or.ip:8006
-#   token: username@pam!Token ID
-#   secret: secret
+pve01:
+  url: https://10.0.0.45:8006
+  token: {{HOMEPAGE_VAR_PVE01_TOKEN}}
+  secret: {{HOMEPAGE_VAR_PVE01_SECRET}}
+
+pve02:
+  url: https://10.0.1.45:8006
+  token: {{HOMEPAGE_VAR_PVE02_TOKEN}}
+  secret: {{HOMEPAGE_VAR_PVE02_SECRET}}

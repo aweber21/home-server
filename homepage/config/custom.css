@@ -1,0 +1,13 @@
+/*
+ * Allow multiline description with '|'
+ */
+.service-description {
+	white-space: pre-wrap;
+}
+
+/*
+ * Add spacing below groups
+ */
+.pb-0 {
+	padding-bottom: 25px !important;
+}

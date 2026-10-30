@@ -1,18 +1,82 @@
----
-# For configuration options and examples, please see:
-# https://gethomepage.dev/configs/services/
+- Home:
+  - Home Assistant:
+      icon: home-assistant.svg
+      description: Home Automation
+      href: http://10.0.0.101
+      proxmoxNode: pve01
+      proxmoxVMID: 101
+      proxmoxType: qemu
 
-- My First Group:
-    - My First Service:
-        href: http://localhost/
-        description: Homepage is awesome
+- Security:
+  - Frigate:
+      icon: frigate.svg
+      description: Network Video Recorder
+      href: https://10.0.1.100:8971
+      proxmoxNode: pve02
+      proxmoxVMID: 100
+      proxmoxType: lxc
+      widget:
+        type: frigate
+        url: https://10.0.1.100:8971
+        username: {{HOMEPAGE_VAR_FRIGATE_USERNAME}}
+        password: {{HOMEPAGE_VAR_FRIGATE_PASSWORD}}
+        enableRecentEvents: false
 
-- My Second Group:
-    - My Second Service:
-        href: http://localhost/
-        description: Homepage is the best
+- Media:
+  - TrueNAS:
+      icon: truenas.svg
+      description: Network Attached Storage
+      href: https://10.0.0.100
+      proxmoxNode: pve01
+      proxmoxVMID: 100
+      proxmoxType: qemu
+      widget:
+        type: truenas
+        url: https://10.0.0.100
+        key: {{HOMEPAGE_VAR_TRUENAS_KEY}}
+        version: 2
+        nasType: scale
+        enablePools: true
 
-- My Third Group:
-    - My Third Service:
-        href: http://localhost/
-        description: Homepage is 😎
+- Development:
+  - Gitea:
+      icon: gitea.svg
+      description: Git Version Control
+      href: http://10.0.0.102:3000
+      proxmoxNode: pve01
+      proxmoxVMID: 102
+      proxmoxType: lxc
+      widget:
+        type: gitea
+        url: http://10.0.0.102:3000
+        key: {{HOMEPAGE_VAR_GITEA_KEY}}
+
+- Infrastructure:
+  - Xfinity Gateway:
+      icon: sh-xfinity-light.svg
+      description: Internet Service Provider
+      href: http://10.0.0.1
+  - Proxmox VE (pve01):
+      icon: proxmox.svg
+      description: Virtualization Environment
+      href: https://10.0.0.45:8006
+      widget:
+        type: proxmox
+        url: https://10.0.0.45:8006
+        username: {{HOMEPAGE_VAR_PVE01_TOKEN}}
+        password: {{HOMEPAGE_VAR_PVE01_SECRET}}
+        node: pve01
+  - Proxmox VE (pve02):
+      icon: proxmox.svg
+      description: Virtualization Environment
+      href: https://10.0.1.45:8006
+      widget:
+        type: proxmox
+        url: https://10.0.1.45:8006
+        username: {{HOMEPAGE_VAR_PVE02_TOKEN}}
+        password: {{HOMEPAGE_VAR_PVE02_SECRET}}
+        node: pve02
+  - Tailscale:
+      icon: tailscale.svg
+      description: VPN
+      href: https://console.tailscale.com/admin/machines

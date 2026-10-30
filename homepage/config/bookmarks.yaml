@@ -1,18 +1,17 @@
----
-# For configuration options and examples, please see:
-# https://gethomepage.dev/configs/bookmarks
-
 - Developer:
-    - Github:
-        - abbr: GH
-          href: https://github.com/
+  - Github:
+    - icon: github.svg
+      abbr: GH
+      href: https://github.com/
 
 - Social:
-    - Reddit:
-        - abbr: RE
-          href: https://reddit.com/
+  - Reddit:
+    - icon: reddit.svg
+      abbr: RE
+      href: https://reddit.com/
 
 - Entertainment:
-    - YouTube:
-        - abbr: YT
-          href: https://youtube.com/
+  - YouTube:
+    - icon: youtube.svg
+      abbr: YT
+      href: https://youtube.com/

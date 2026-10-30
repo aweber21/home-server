@@ -2,9 +2,19 @@ services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
+    restart: unless-stopped
     ports:
       - 3000:3000
     volumes:
-      - ./config:/app/config # Make sure your local config directory exists
+      - ./config:/app/config
+      - ./images:/app/public/images
     environment:
       HOMEPAGE_ALLOWED_HOSTS: ${HOMEPAGE_ALLOWED_HOSTS}
+      HOMEPAGE_VAR_PVE01_TOKEN: ${HOMEPAGE_VAR_PVE01_TOKEN}
+      HOMEPAGE_VAR_PVE01_SECRET: ${HOMEPAGE_VAR_PVE01_SECRET}
+      HOMEPAGE_VAR_PVE02_TOKEN: ${HOMEPAGE_VAR_PVE02_TOKEN}
+      HOMEPAGE_VAR_PVE02_SECRET: ${HOMEPAGE_VAR_PVE02_SECRET}
+      HOMEPAGE_VAR_TRUENAS_KEY: ${HOMEPAGE_VAR_TRUENAS_KEY}
+      HOMEPAGE_VAR_GITEA_KEY: ${HOMEPAGE_VAR_GITEA_KEY}
+      HOMEPAGE_VAR_FRIGATE_USERNAME: ${HOMEPAGE_VAR_FRIGATE_USERNAME}
+      HOMEPAGE_VAR_FRIGATE_PASSWORD: ${HOMEPAGE_VAR_FRIGATE_PASSWORD}
