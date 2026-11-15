@@ -21,4 +21,4 @@ cp -r $SOURCE_DIRECTORY/config/!(.*|*.db*|*.log*|*www*|secrets.yaml) $DESTINATIO
 
 # Back Up HACS Configuration Files
 mkdir -p $DESTINATION_DIRECTORY/config/www
-cp -r $SOURCE_DIRECTORY/config/www/!(.*|*community*) $DESTINATION_DIRECTORY/config/www
+cp -r $SOURCE_DIRECTORY/config/www/!(*community*) $DESTINATION_DIRECTORY/config/www
