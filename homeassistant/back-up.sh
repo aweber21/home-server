@@ -17,4 +17,8 @@ DESTINATION_DIRECTORY=$REPOSITORY_DIRECTORY/homeassistant
 
 # Back Up Configuration Files
 mkdir -p $DESTINATION_DIRECTORY/config
-cp -r $SOURCE_DIRECTORY/config/!(.*|*.db*|*.log*|secrets.yaml) $DESTINATION_DIRECTORY/config
+cp -r $SOURCE_DIRECTORY/config/!(.*|*.db*|*.log*|*www*|secrets.yaml) $DESTINATION_DIRECTORY/config
+
+# Back Up HACS Configuration Files
+mkdir -p $DESTINATION_DIRECTORY/config/www
+cp -r $SOURCE_DIRECTORY/config/www/!(.*|*community*) $DESTINATION_DIRECTORY/config/www
