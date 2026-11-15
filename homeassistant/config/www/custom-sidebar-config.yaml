@@ -1,0 +1,52 @@
+# Default Order:
+#   Overview
+#   Map
+#   Activity
+#   History
+#   Media
+#   To-do lists
+
+title: 'Weber Fam'
+sidebar_editable: false
+order:
+  - item: Our Home
+    divider: true
+    hide: false
+  - item: Built-In
+    new_item: true
+    section_header: true
+  - item: Overview
+    hide: false
+  - item: Map
+    hide: false
+  - item: Lights
+    hide: false
+  - item: Climate
+    hide: false
+  - item: Security
+    hide: false
+  - item: To-do lists
+    hide: false
+  - item: Maintenance
+    hide: false
+  - item: Activity
+    hide: true
+  - item: History
+    hide: true
+  - item: Media
+    hide: true
+
+exceptions:
+  - user: homeassistant_admin
+    extend_from: base
+    order:
+      - item: Activity
+        hide: false
+        bottom: true
+      - item: History
+        hide: false
+        bottom: true
+      - item: Terminal
+        hide: false
+        bottom: true
+        divider: true
