@@ -1,6 +1,74 @@
+version: 0.18-0
 
 mqtt:
-  enabled: False
+  enabled: false
 
-cameras: {}  # No cameras defined, UI wizard should be used
-version: 0.17-0
+detect:
+  enabled: false
+  # Reolink cameras have a substream of 640x480 at 10 fps
+  width: 640
+  height: 480
+  fps: 10
+
+detectors:
+  ov:
+    type: openvino
+    device: GPU
+
+model:
+  model_type: yolo-generic
+  width: 320
+  height: 320
+  input_tensor: nchw
+  input_dtype: float
+  path: /config/model_cache/yolov9-s-320.onnx
+  labelmap_path: /labelmap/coco-80.txt
+
+record:
+  enabled: false
+
+ffmpeg:
+  # Since Reolink cameras are going through go2rtc, use restream preset
+  input_args: preset-rtsp-restream
+  # 11th Gen Intel iGPU
+  hwaccel_args: preset-vaapi
+
+go2rtc:
+  # Required for two-way talk
+  webrtc:
+    candidates:
+      - localhost:8555
+  streams:
+    doorbell:
+      # Use the SUB stream instead of Main for the Doorbell due to wireless access point location. This will change when it moves in the future.
+      - ffmpeg:http://192.168.1.111/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=WeberFam1011#video=copy#audio=copy#audio=opus
+      - rtsp://admin:WeberFam1011@192.168.1.111/Preview_01_sub
+    doorbell_sub:
+      - ffmpeg:http://192.168.1.111/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=WeberFam1011
+      - rtsp://admin:WeberFam1011@192.168.1.111/Preview_01_sub
+    driveway:
+      - ffmpeg:http://192.168.1.130/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=WeberFam1011#video=copy#audio=copy#audio=opus
+    driveway_sub:
+      - ffmpeg:http://192.168.1.130/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=WeberFam1011
+
+cameras:
+  doorbell:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://localhost:8554/doorbell
+          roles:
+            - record
+        - path: rtsp://localhost:8554/doorbell_sub
+          roles:
+            - detect
+  driveway:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://localhost:8554/driveway
+          roles:
+            - record
+        - path: rtsp://localhost:8554/driveway_sub
+          roles:
+            - detect
