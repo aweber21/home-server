@@ -76,6 +76,15 @@
         username: {{HOMEPAGE_VAR_PVE02_TOKEN}}
         password: {{HOMEPAGE_VAR_PVE02_SECRET}}
         node: pve02
+  - Proxmox Backup Server (pbs01):
+      icon: proxmox-backup-server.svg
+      description: Backup Server
+      href: https://10.0.0.21:8007
+      widget:
+        type: proxmoxbackupserver
+        url: https://10.0.0.21:8007
+        username: {{HOMEPAGE_VAR_PBS01_TOKEN}}
+        password: {{HOMEPAGE_VAR_PBS01_SECRET}}
   - Tailscale:
       icon: tailscale.svg
       description: VPN

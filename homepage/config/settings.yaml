@@ -28,4 +28,4 @@ layout:
     icon: mdi-domain.svg
     header: true
     style: row
-    columns: 4
+    columns: 5
